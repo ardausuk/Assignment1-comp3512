@@ -35,7 +35,7 @@ class ArtistsDB{
     public function __construct($connection){
         $this->pdo = $connection; }
 
-    # The function below gets all artists from the DB
+    # The function below gets all artists from the DB and orders them by name
     public function getAll(){
         $sql = self::$baseSQL . " ORDER BY artist_name";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
@@ -60,7 +60,7 @@ class GenresDB{
     public function __construct($connection){
         $this->pdo = $connection; }
 
-    # The function below gets all genres from the DB
+    # The function below gets all genres from the DB and orders them by their name
     public function getAll(){
         $sql = self::$baseSQL . " ORDER BY genre_name";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
@@ -79,8 +79,27 @@ class GenresDB{
     }
 
 }
-class SongsDB{}
-class TypesDB{}
+
+class SongsDB{
+    private static $baseSQL = "SELECT song_id, bpm, energy, danceability, liveness, valence, acousticness, speechiness, popularity, title, duration, artist_name, year, genre_name, popularity,type_name FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id INNER JOIN types ON artists.artist_type_id=types.type_id";
+    
+    public function __construct($connection){
+        $this -> pdo = $connection; }
+}
+# Type class with the functions needed for the type tables within the DB
+class TypesDB{
+    private static $baseSQL = "SELECT type_id, type_name FROM types";
+
+    public function __construct($connection){
+        $this -> pdo = $connection; }
+    
+    # The function below gets all types from the DB and orders by their name
+   public function getAll(){
+        $sql = self::$baseSQL . " ORDER BY genre_name";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }    
+}
 
 
 
