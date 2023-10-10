@@ -102,3 +102,29 @@
     .below-nav a:hover {
         text-decoration: underline;
     }
+    
+    @media screen and (max-width: 768px) {
+        main {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .box {
+        background-color: #333333;
+        padding: 20px;
+        color: #fff;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    .box h3 {
+        color: #1DB954;
+    }

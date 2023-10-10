@@ -25,6 +25,10 @@
 </div>
 </header>
 
+<h1>Song Information</h1>
+
+<main>
+
 <footer>
 <p>COMP 3512 Assignment 1</p>
         <p>&copy; 2023 Arda Usuk. All Rights Reserved.</p>

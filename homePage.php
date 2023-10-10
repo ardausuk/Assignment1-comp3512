@@ -10,10 +10,8 @@
     <title>HarmonyHub</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-    <header>
 
-
+<header>
 <div class="navbar">
     <p class="title">HarmonyHub</p>
     <ul>
@@ -24,12 +22,50 @@
     </ul>
 </div>
 </header>
+
+<body>
+    
 <div class="below-nav">
+<h1>Home Page</h1><br>
 <p>COMP 3512 Assignment 1</p>
 <p>Description of Assignment 1</p>
-
 <p>GitHub Repository: <a href="https://github.com/ardausuk/Assignment1-comp3512">HarmonyHub</a></p>
 </div>
+
+<main>
+
+<div class="box genre"> 
+        <h3>Top Genres</h3>
+    </div>
+
+    <div class="box artist"> 
+        <h3>Top Artists</h3>
+    </div>
+
+    <div class="box popular"> 
+        <h3>Most Popular Songs</h3>
+    </div>
+
+    <div class="box hit"> 
+        <h3>One Hit Wonders</h3>
+    </div>
+
+    <div class="box acoustic"> 
+        <h3>Longest Acoustic Songs</h3>
+    </div>
+
+    <div class="box club"> 
+        <h3>At The Club</h3>
+    </div>
+
+    <div class="box running"> 
+        <h3>Running Songs</h3>
+    </div>
+
+    <div class="box studying"> 
+        <h3>Studying</h3>
+    </div>
+</main>
 <footer>
 <p>COMP 3512 Assignment 1</p>
 <p>Description of Assignment 1</p>
