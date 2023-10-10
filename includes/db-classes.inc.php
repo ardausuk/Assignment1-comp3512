@@ -42,7 +42,7 @@ class ArtistsDB{
         return $statement->fetchAll();
     }
     # The function below gets the top 10 artists based on number of songs
-    public function getTop(){
+    public function getTopArtists(){
         $sql = "SELECT artist_name AS name, COUNT(artists.artist_id) AS num FROM artists INNER JOIN songs ON artists.artist_id=songs.artist_id GROUP BY artists.artist_id ORDER BY num DESC LIMIT 10";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
@@ -53,8 +53,32 @@ class ArtistsDB{
         return $statement->fetchAll();
     }
     }
+# Genre class with the functions needed for the genre tables within the DB
+class GenresDB{
+    private static $baseSQL = "SELECT genre_id, genre_name FROM genres"
 
-class GenresDB{}
+    public function __construct($connection){
+        $this->pdo = $connection; }
+
+    # The function below gets all genres from the DB
+    public function getAll(){
+        $sql = self::$baseSQL . " ORDER BY genre_name";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }    
+    # The function below gets the top 10 genres based on the number of songs in that genre
+    public function getTopGenres(){
+        $sql = "SELECT COUNT(songs.genre_id) AS num, genre_name AS name FROM songs INNER JOIN genres ON songs.genre_id = genres.genre_id GROUP BY songs.genre_id ORDER BY num DESC LIMIT 10";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
+    # The function below returns a specific artist based on the genre_id
+    public function getGenre($genre_id){
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($genre_id));
+        return $statement->fetchAll();
+    }
+
+}
 class SongsDB{}
 class TypesDB{}
 
