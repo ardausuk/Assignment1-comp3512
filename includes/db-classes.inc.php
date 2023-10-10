@@ -104,7 +104,7 @@ class TypesDB{
     
     # The function below gets all types from the DB and orders by their name
    public function getAll(){
-        $sql = self::$baseSQL . " ORDER BY genre_name";
+        $sql = self::$baseSQL . " ORDER BY type_name";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
     }    
