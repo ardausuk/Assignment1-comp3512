@@ -17,9 +17,9 @@
 <div class="navbar">
     <p class="title">HarmonyHub</p>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Search</a></li>
-        <li><a href="#">Favourites</a></li>
+        <li><a href="homePage.php">Home</a></li>
+        <li><a href="searchPage.php">Search</a></li>
+        <li><a href="favPage.php">Favourites</a></li>
         <li><a href="#">Browse</a></li>
     </ul>
 </div>
