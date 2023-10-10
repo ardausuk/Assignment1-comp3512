@@ -28,7 +28,32 @@ if (!$statement) throw new PDOException; }
 return $statement;
  }
 }
-class ArtistsDB{}
+# Artist class with the functions needed for the artist table within the DB
+class ArtistsDB{
+    private static $baseSQL = "SELECT artist_id, artist_name FROM artists";
+
+    public function __construct($connection){
+        $this->pdo = $connection; }
+
+    # The function below gets all artists from the DB
+    public function getAll(){
+        $sql = self::$baseSQL . " ORDER BY artist_name";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
+    # The function below gets the top 10 artists based on number of songs
+    public function getTop(){
+        $sql = "SELECT artist_name AS name, COUNT(artists.artist_id) AS num FROM artists INNER JOIN songs ON artists.artist_id=songs.artist_id GROUP BY artists.artist_id ORDER BY num DESC LIMIT 10";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
+    # The function below returns a specific artist based on the artist_id
+    public function getArtist($artist_id){
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($artist_id));
+        return $statement->fetchAll();
+    }
+    }
+
 class GenresDB{}
 class SongsDB{}
 class TypesDB{}
