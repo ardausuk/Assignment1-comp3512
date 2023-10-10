@@ -85,7 +85,16 @@ class SongsDB{
     
     public function __construct($connection){
         $this -> pdo = $connection; }
+        /**
+         * One-hit wonders: the most popular songs by artists with only a single song in the database. It will also require a calculated column. Sort them by popularity
+         * Longest Acoustic Song: Select only those songs whose acousticness value is above 40. Sort them by duration 
+         * At the Club: Select only those songs whose danceability value is above 80. A song’s suitability for the club is based on the calculation: danceability*1.6 + energy*1.4. The list should be sorted based on the calculation in descending order. 
+         * Running Songs: Select only those songs whose bpm value is between 120-125. A song’s suitability for running is based on the calculation: energy*1.3 + valence*1.6. The list should be sorted based on the calculation in descending order.
+         * Studying: select only those songs whose bpm value is between 100-115 and whose speechiness is between 1-20. A song’s suitability for studying is based on the calculation: (acousticness*0.8)+(100-speechiness)+(100-valence). The list should be sorted based on the calculation in descending order
+         */
+
 }
+
 # Type class with the functions needed for the type tables within the DB
 class TypesDB{
     private static $baseSQL = "SELECT type_id, type_name FROM types";
