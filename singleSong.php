@@ -21,6 +21,8 @@
         <li><a href="searchPage.php">Search</a></li>
         <li><a href="favPage.php">Favourites</a></li>
         <li><a href="#">Browse</a></li>
+        <li><a href="aboutPage.php">About Us</a></li>
+
     </ul>
 </div>
 </header>
