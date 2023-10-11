@@ -92,7 +92,56 @@ class SongsDB{
          * Running Songs: Select only those songs whose bpm value is between 120-125. A song’s suitability for running is based on the calculation: energy*1.3 + valence*1.6. The list should be sorted based on the calculation in descending order.
          * Studying: select only those songs whose bpm value is between 100-115 and whose speechiness is between 1-20. A song’s suitability for studying is based on the calculation: (acousticness*0.8)+(100-speechiness)+(100-valence). The list should be sorted based on the calculation in descending order
          */
-
+        class SongsDB{
+            private static $baseSQL = "SELECT song_id, bpm, energy, danceability, liveness, valence, acousticness, 
+            speechiness, popularity, title, duration, artist_name, year, genre_name, popularity,type_name FROM 
+            artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON 
+            songs.genre_id = genres.genre_id INNER JOIN types ON artists.artist_type_id=types.type_id";
+    
+            public function __construct($connection){
+                $this -> pdo = $connection;
+            }
+    
+            # Returns all songs ordered by title
+            public function showAllSongs(){
+                $sql = self::$baseSQL . " ORDER BY title";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+                return $statement->fetchAll();
+            }
+            
+            # Returns song by title given
+            public function getTitle($title){
+                $sql = self::$baseSQL . " WHERE title LIKE ? ORDER BY title";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array('%' . $title . '%'));
+                return $statement->fetchAll();
+            }
+            
+            # Returns songs for artist by name ordered by title
+            public function getArtist($artistName){
+                $sql = self::$baseSQL . " WHERE artist_name=? ORDER BY title";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($artistName));
+                return $statement->fetchAll();
+            }
+            # Returns songs for genre names ordered by title
+            public function getGenre($genreName){
+                $sql = self::$baseSQL . " WHERE genre_name=? ORDER BY title";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($genreName));
+                return $statement->fetchAll();
+            }
+            
+            # Returns songs before year given ordered by year
+            public function getBYear($year){
+                $sql = self::$baseSQL . " WHERE year<? ORDER BY year";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($year));
+                return $statement->fetchAll();
+            }
+            
+        }
 }
 
 # Type class with the functions needed for the type tables within the DB
