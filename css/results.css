@@ -93,3 +93,25 @@
         text-align: center;
         margin-top: 30px;
     }
+    
+    @keyframes bounceH1 {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-20px);
+        }
+        60% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    h1 {
+        font-size: 40px;
+        animation: bounceH1 2s infinite;
+        animation-iteration-count: infinite;
+    }
