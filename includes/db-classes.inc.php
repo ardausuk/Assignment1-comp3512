@@ -140,7 +140,99 @@ class SongsDB{
                 $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($year));
                 return $statement->fetchAll();
             }
+
+            # Returns songs after year given ordered by year
+            public function getAYear($year){
+                $sql = self::$baseSQL . " WHERE year>? ORDER BY year";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($year));
+                return $statement->fetchAll();
+            }
+            # Return songs with lower than given popularity ordered by popularity 
+            public function getLowPop($popularity){
+                $sql = self::$baseSQL . " WHERE popularity<? ORDER BY popularity";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($popularity));
+                return $statement->fetchAll();
+            }
+    
+            # Return songs with higher than given popularity ordered by popularity 
+            public function getHighPop($popularity){
+                $sql = self::$baseSQL . " WHERE popularity>? ORDER BY popularity";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($popularity));
+                return $statement->fetchAll();
+            }
+    
+            # Returns songs information for specific song based on songID
+            public function getSong($songID){
+                $sql = self::$baseSQL . " WHERE song_id=?";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($songID));
+                return $statement->fetchAll();
+            }
+            # Returns top 10 pop songs songs 
+            public function getTopPop(){
+                $sql = self::$baseSQL . ' ORDER BY popularity DESC LIMIT 10';
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+                return $statement->fetchAll();
+            }
             
+            # Returns top 10 one hit hit wonder songs with specific sql queries
+            public function getTopOne(){
+                $sql = " SELECT song_id, artists.artist_name, title, popularity FROM 
+                songs INNER JOIN artists ON songs.artist_id=artists.artist_id GROUP BY 
+                artist_name HAVING COUNT(artist_name)=1 ORDER BY popularity DESC LIMIT 10";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+                return $statement->fetchAll();
+            }
+
+            # Returns top 10 longest acoustic songs with specific sql queries
+            public function getTopLongestAcoustic(){
+                $sql = "SELECT song_id, title, acousticness, duration, artist_name FROM 
+                songs INNER JOIN artists ON songs.artist_id=artists.artist_id WHERE 
+                acousticness>40 ORDER BY duration DESC LIMIT 10";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+                return $statement->fetchAll();
+            }
+    
+            # Retruns top 10 club songs with specific sql queries
+            public function getTopClub(){
+                $sql = "SELECT song_id, title, danceability, artist_name, 
+                (danceability*1.6) + (energy*1.4) AS calc FROM songs INNER JOIN 
+                artists ON songs.artist_id=artists.artist_id WHERE danceability>80 
+                ORDER BY calc DESC LIMIT 10";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+                return $statement->fetchAll();
+            }
+            
+            # Returns top 10 running songs with specific sql queries
+            public function getTopRun(){
+                $sql = "SELECT song_id, title, bpm, artist_name, (energy*1.3) + (valence*1.6) 
+                AS calc FROM songs INNER JOIN artists ON songs.artist_id=artists.artist_id WHERE 
+                bpm BETWEEN 120 AND 125 ORDER BY calc DESC LIMIT 10";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+                return $statement->fetchAll();
+            }
+            
+            # Returns top 10 studying songs with specific sql queries
+            public function getTopStud(){
+                $sql = "SELECT song_id, title, bpm, artist_name, speechiness, 
+                (acousticness*0.8) + (100-speechiness) + (100-valence) AS calc FROM 
+                songs INNER JOIN artists ON songs.artist_id=artists.artist_id WHERE 
+                (bpm BETWEEN 100 AND 115) AND (speechiness BETWEEN 1 AND 20) ORDER BY 
+                calc DESC LIMIT 10";
+    
+                $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+                return $statement->fetchAll();
+            }
+
+
         }
 }
 
@@ -151,7 +243,7 @@ class TypesDB{
     public function __construct($connection){
         $this -> pdo = $connection; }
     
-    # The function below gets all types from the DB and orders by their name
+# The function below gets all types from the DB and orders by their name
    public function getAll(){
         $sql = self::$baseSQL . " ORDER BY type_name";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
