@@ -44,6 +44,7 @@ catch (Exception $e){ die($e->getMessage());}
 <p>COMP 3512 Assignment 1</p>
 <p>Description of Assignment 1</p>
 <p>GitHub Repository: <a href="https://github.com/ardausuk/Assignment1-comp3512">HarmonyHub</a></p>
+
 </div>
 
 <main>
