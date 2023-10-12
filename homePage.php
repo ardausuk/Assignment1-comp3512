@@ -1,4 +1,16 @@
 <?php
+require_once 'includes/config.inc.php';
+require_once 'includes/homePage-helper.inc.php';
+require_once 'includes/db-classes.inc.php';
+
+try{
+    $conn = DatabaseHelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
+    $songGet = new SongsDB($conn);
+    $artistGet = new ArtistsDB($conn);
+    $genreGet = new GenresDB($conn);
+}
+catch (Exception $e){ die($e->getMessage());}
+
 ?>
 
 <!DOCTYPE html>
@@ -38,34 +50,83 @@
 
 <div class="box genre"> 
         <h3>Top Genres</h3>
+        <br>
+        <?php 
+                $genres = $genreGet->getTopGenres();
+                outputTop10Category($genres);
+            ?>
     </div>
 
     <div class="box artist"> 
         <h3>Top Artists</h3>
+        <br>
+
+        <?php 
+                $artists = $artistGet->getTopArtists();
+                outputTop10Category($artists);
+            ?>
+
     </div>
 
     <div class="box popular"> 
         <h3>Most Popular Songs</h3>
+        <br>
+
+        <?php
+        $popular = $songGet->getTopPop();
+                outputTop10Songs($popular);
+                ?>
     </div>
 
     <div class="box hit"> 
         <h3>One Hit Wonders</h3>
+        <br>
+
+        <?php 
+                $oneHit = $songGet->getTopOne();
+                outputTop10Songs($oneHit);
+            ?>
     </div>
 
     <div class="box acoustic"> 
         <h3>Longest Acoustic Songs</h3>
-    </div>
+        <br>
+
+        <?php
+        $acou = $songGet->getTopLongestAcoustic();
+             
+        outputTop10Songs($acou);
+    ?>
+        </div>
 
     <div class="box club"> 
         <h3>At The Club</h3>
+        <br>
+
+        <?php 
+                $club = $songGet->getTopClub();
+                outputTop10Songs($club);
+            ?>
     </div>
 
     <div class="box running"> 
         <h3>Running Songs</h3>
+        <br>
+
+        <?php 
+                $run = $songGet->getTopRun();
+                outputTop10Songs($run);
+            ?>
     </div>
 
     <div class="box studying"> 
         <h3>Studying</h3>
+        <br>
+
+        <?php 
+                $study = $songGet->getTopStud();
+                outputTop10Songs($study);
+            ?>
     </div>
 </main>
 <footer>

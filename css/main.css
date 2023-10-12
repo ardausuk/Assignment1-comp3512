@@ -128,3 +128,12 @@ main {
 .box h3 {
     color: #1DB954;
 }
+
+.no-bullets {
+    list-style-type: none;
+    padding: 0;
+}
+
+.no-bullets li a {
+    color: #1DB954;
+}
