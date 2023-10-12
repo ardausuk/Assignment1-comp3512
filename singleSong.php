@@ -10,7 +10,6 @@
     <title>HarmonyHub</title>
     <link rel="stylesheet" href="css/single.css">
 </head>
-<body>
     <header>
 
 
@@ -26,6 +25,7 @@
     </ul>
 </div>
 </header>
+<body>
 
 <h1>Song Information</h1>
 

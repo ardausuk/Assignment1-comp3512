@@ -22,7 +22,7 @@ main {
     width: 85%;
     margin: auto;
     padding: 10px 0;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .navbar {
@@ -125,7 +125,7 @@ main p {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 40px;
     animation: bounceH1 2s infinite;
     animation-iteration-count: infinite;
 }

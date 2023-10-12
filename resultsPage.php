@@ -10,9 +10,8 @@
     <title>HarmonyHub</title>
     <link rel="stylesheet" href="css/results.css">
 </head>
-<body>
-    <header>
 
+    <header>
 
 <div class="navbar">
     <p class="title">HarmonyHub</p>
@@ -26,7 +25,11 @@
     </ul>
 </div>
 </header>
+<body>
+    <h1>Browse For Your Songs!</h1>
+<main>
 
+</main>
 <footer>
 <p>COMP 3512 Assignment 1</p>
         <p>&copy; 2023 Arda Usuk. All Rights Reserved.</p>

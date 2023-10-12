@@ -27,7 +27,7 @@
 </div>
 </header>
 <body>
-    <h1> Search For Your Favourite Song</h1>
+    <h1> Search For Your Favourite Song!</h1>
 <main>
    
 </main> 
