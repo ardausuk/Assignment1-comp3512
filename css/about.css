@@ -35,7 +35,7 @@ main {
 }
 
 * {
-    background-color: #333333;
+    background-color: black;
     margin: 0;
     padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -103,4 +103,27 @@ main {
 
 main p {
     color: #fff;
+    margin-bottom: 50px;
+}
+
+@keyframes bounceH1 {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+h1 {
+    font-size: 50px;
+    animation: bounceH1 2s infinite;
+    animation-iteration-count: infinite;
 }
