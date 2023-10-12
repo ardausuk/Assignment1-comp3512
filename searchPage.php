@@ -10,7 +10,7 @@
     <title>HarmonyHub</title>
     <link rel="stylesheet" href="css/search.css">
 </head>
-<body>
+
     <header>
 
 
@@ -26,7 +26,11 @@
     </ul>
 </div>
 </header>
-
+<body>
+    <h1> Search For Your Favourite Song</h1>
+<main>
+   
+</main> 
 <footer>
 <p>COMP 3512 Assignment 1</p>
         <p>&copy; 2023 Arda Usuk. All Rights Reserved.</p>
