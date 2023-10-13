@@ -88,8 +88,8 @@
 <main>
 <a href='resultsPage.php' class='show-all-button'><button>Show All</button></a>
 <?php
-echo $message;
-    outputSearchResults($songs, $name, $search); 
+echo "<p class='title'>$message</p>";
+outputSearchResults($songs, $name, $search); 
 ?>
 
 </main>

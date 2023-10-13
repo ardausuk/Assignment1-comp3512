@@ -217,3 +217,9 @@
         border: 2px solid #12823b;
         color: #fff;
     }
+    
+    .title {
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+    }
