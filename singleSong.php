@@ -2,7 +2,7 @@
 require_once 'includes/config.inc.php';
 require_once 'includes/db-classes.inc.php';
 require_once 'includes/homePage-helper.inc.php';
-require_once 'includes/searchBrowse.inc.php';
+require_once 'includes/singlePage-helper.inc.php';
 
 try{
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
