@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +28,12 @@
 </div>
 </header>
 <body>
-    <h1> Search For Your Favourite Song!</h1>
+    <h1> Search For Your Favourite Song</h1>
 <main>
-   
+<form>
+
+<form>
+<img src='img/gif2.gif' />
 </main> 
 <footer>
 <p>COMP 3512 Assignment 1</p>

@@ -29,6 +29,8 @@
 <h1> Your Favourite Songs!</h1>
 
 <main>
+<img src='img/gif3.gif' />
+
 </main>
 <footer>
 <p>COMP 3512 Assignment 1</p>
