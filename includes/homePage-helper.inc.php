@@ -1,4 +1,5 @@
 <?php
+# Function to ouput top 10 for homepage
 function outputTop10Category($category){
     echo "<ul class='no-bullets'>";
     foreach($category as $c){
@@ -7,7 +8,7 @@ function outputTop10Category($category){
     }
     echo "</ul>";
 }
-
+# Function to ouput top 10 for homepage
 function outputTop10Songs($song){
     echo "<ul class='no-bullets'>";
     foreach($song as $topSongs){ 

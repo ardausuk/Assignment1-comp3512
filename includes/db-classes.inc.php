@@ -1,6 +1,6 @@
 <?php
+#Lab DB helper
  class DatabaseHelper{
-    
     public static function createConnection($values = array()){
         $connString = $values[0];
         $user = $values[1];
