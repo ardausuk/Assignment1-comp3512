@@ -11,7 +11,7 @@ function outputTop10Category($category){
 function outputTop10Songs($song){
     echo "<ul class='no-bullets'>";
     foreach($song as $topSongs){ 
-        echo '<li><span><a href="singleSongPage.php?id=' . $topSongs['song_id'] . '">' . $topSongs['title'] . '</a></span> by ' . $topSongs['artist_name'] . '</li>';
+        echo '<li><span><a href="singleSong.php?id=' . $topSongs['song_id'] . '">' . $topSongs['title'] . '</a></span> by ' . $topSongs['artist_name'] . '</li>';
         echo "<br>";
     }
     echo "</ul>";
