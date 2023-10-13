@@ -1,4 +1,9 @@
 <?php
+require_once 'includes/config.inc.php';
+require_once 'includes/db-classes.inc.php';
+require_once 'includes/favPage-helper.inc.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +34,13 @@
 <h1> Your Favourite Songs!</h1>
 
 <main>
-<img src='img/gif3.gif' />
+<?php
+  
+    echo "<table>";
+    outputFavTable();
+
+    echo "</table>";
+    ?>
 
 </main>
 <footer>

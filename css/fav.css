@@ -115,3 +115,38 @@ h1 {
     animation: bounceH1 2s infinite;
     animation-iteration-count: infinite;
 }
+
+table {
+    width: 70%;
+    border-collapse: collapse;
+    background-color: black;
+    margin: auto;
+}
+
+th,
+td {
+    padding: 2px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid #1DB954;
+}
+
+th {
+    background-color: black;
+    font-weight: normal;
+}
+
+td {
+    background-color: black;
+}
+
+.song-title a {
+    color: #1DB954;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.song-title a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
