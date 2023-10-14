@@ -12,39 +12,39 @@
      $name="";
 
      if( !empty($_GET['title']) ){
-         $songs = $songsGet->getAllWithTitle($_GET['title']);
+         $songs = $songsGet->getTitle($_GET['title']);
          $message = "Showing all songs with '" . $_GET['title'] . "' in Title";
          $name = "title";
      }
-     else if( !empty($_GET['artistList']) && $_GET['artistList'] > 0){
-         $artist_data = $artistGet->getArtist($_GET['artistList']);
-         $songs = $songsGet->getAllForArtist($artist_data[0]['artist_name']);
+     else if( !empty($_GET['outputArtistList']) && $_GET['outputArtistList'] > 0){
+         $artist_data = $artistGet->getArtist($_GET['outputArtistList']);
+         $songs = $songsGet->getTopArtists($artist_data[0]['artist_name']);
          $message = "Showing all songs by " . $artist_data[0]['artist_name'];
-         $name = "artistList";
+         $name = "outputArtistList";
      }
-     else if( !empty($_GET['genreList']) && $_GET['genreList'] > 0 ){
-         $genre_data = $genreGet->getGenre($_GET['genreList']);
-         $songs = $songsGet->getAllForGenre($genre_data[0]['genre_name']);
+     else if( !empty($_GET['outputGenre']) && $_GET['outputGenre'] > 0 ){
+         $genre_data = $genreGet->getGenre($_GET['outputGenre']);
+         $songs = $songsGet->getTopGenres($genre_data[0]['genre_name']);
          $message = "Showing all " . $genre_data[0]['genre_name'] . " songs in Genre";
-         $name = "genreList";
+         $name = "outputGenre";
      }
      else if( !empty($_GET['year-before-value']) ){
-         $songs = $songsGet->getAllBeforeYear($_GET['year-before-value']);
+         $songs = $songsGet->getBYear($_GET['year-before-value']);
          $message = "Showing all songs before the year " . $_GET['year-before-value'];
          $name = "year-before-value";
      }
      else if( !empty($_GET['year-after-value']) ){
-         $songs = $songsGet->getAllAfterYear($_GET['year-after-value']);
+         $songs = $songsGet->getAYear($_GET['year-after-value']);
          $message = "Showing all songs after the year " . $_GET['year-after-value'];
          $name = "year-after-value";
      }
      else if( !empty($_GET['pop-less-value']) ){
-         $songs = $songsGet->getAllPopularityLess($_GET['pop-less-value']);
+         $songs = $songsGet->getLowPop($_GET['pop-less-value']);
          $message = "Showing all songs with popularity less than " . $_GET['pop-less-value'];
          $name = "pop-less-value";
      }
      else if( !empty($_GET['pop-greater-value']) ){
-         $songs = $songsGet->getAllPopularityGreat($_GET['pop-greater-value']);
+         $songs = $songsGet->getHighPop($_GET['pop-greater-value']);
          $message = "Showing all songs with popularity greater than " . $_GET['pop-greater-value'];
          $name = "pop-greater-value";
      }

@@ -3,6 +3,21 @@ require_once 'includes/config.inc.php';
 require_once 'includes/db-classes.inc.php';
 require_once 'includes/favPage-helper.inc.php';
 
+session_start();
+
+if( ! isset($_SESSION["favorites"]) ){
+    $_SESSION["favorites"] = [];
+}
+
+$favorites = $_SESSION["favorites"];
+
+$conn = DatabaseHelper::createConnection( array(DBCONNSTRING, DBUSER, DBPASS) );
+    $songsGet = new SongsDB($conn);
+
+    if( !empty($_GET["name"]) && !empty($_GET[$_GET["name"]]) )
+        $str = "name=" . $_GET['name'] . "&" . $_GET['name'] . "=" . $_GET[$_GET['name']];
+    else
+        $str = "";
 
 ?>
 
@@ -35,12 +50,23 @@ require_once 'includes/favPage-helper.inc.php';
 
 <main>
 <?php
-  
-    echo "<table>";
-    outputFavTable();
+  echo "<p><a> Remove all</a></p>";
+  if( !empty($_GET["text"]) ){
+    echo $_GET["text"]; 
+}
 
-    echo "</table>";
-    ?>
+echo "<table>";
+outputFavTable();
+
+?>
+
+<?php
+foreach($favorites as $fav_id){
+    favList($songsGet->getSong($fav_id), $str);
+}
+
+echo "</table>";
+?>
 
 </main>
 <img src="img/gif3.gif" />
