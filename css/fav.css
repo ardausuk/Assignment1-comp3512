@@ -72,9 +72,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    background-color: black;
 }
 
 footer a {
@@ -149,4 +147,24 @@ td {
 .song-title a:hover {
     text-decoration: underline;
     color: #fff;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    text-align: center;
+    color: #1DB954;
+    padding-bottom: 100px;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }

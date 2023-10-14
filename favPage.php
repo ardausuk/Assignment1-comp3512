@@ -43,6 +43,7 @@ require_once 'includes/favPage-helper.inc.php';
     ?>
 
 </main>
+<img src="img/gif3.gif" />
 <footer>
 <p>COMP 3512 Assignment 1</p>
         <p>&copy; 2023 Arda Usuk. All Rights Reserved.</p>

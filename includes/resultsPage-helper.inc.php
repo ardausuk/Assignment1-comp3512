@@ -36,8 +36,8 @@ function truncateTitle($title, $max_length = 25){
     } 
     # Function that outputs the genre from the search into the browse table
     function outputGenre($songs){
-        foreach($songs as $key){
-            echo "<option value='".$key['genre_id']."'>".$key['genre_name']."</option>";
+        foreach($songs as $songkey){
+            echo "<option value='".$songkey['genre_id']."'>".$songkey['genre_name']."</option>";
         }
 
     }

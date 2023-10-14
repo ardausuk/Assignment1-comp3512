@@ -1,5 +1,15 @@
 <?php
-
+require_once 'includes/db-classes.inc.php';
+require_once 'includes/config.inc.php';
+require_once 'includes/resultsPage-helper.inc.php';
+try{
+    $conn = DatabaseHelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
+    $songGet = new GenresDB($conn);
+    $artistGet = new ArtistsDB($conn);
+    $song = $songGet->getAll();
+    $artist = $artistGet->getAll();
+}
+catch (Exception $e){ die($e->getMessage());}   
 ?>
 
 <!DOCTYPE html>
@@ -30,10 +40,54 @@
 <body>
     <h1> Search For Your Favourite Song</h1>
 <main>
-<form>
+<form action="resultsPage.php" method="GET">
 
-<form>
-<img src='img/gif2.gif' />
+<div class="form-row">
+    <div class="form-group form-title">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+    </div>
+
+    <div class="form-group form-artist">
+        <label for="outputArtistList">Artist:</label>
+        <select name="outputArtistList" id="outputArtistList">
+            <option value='0'>Choose An Artist</option>
+            <?=outputArtistList($artist);?>
+        </select>
+    </div>
+</div>
+
+<div class="form-group form-genre">
+    <label for="outputGenre">Genre:</label><br>
+    <select name="outputGenre" id="outputGenre">
+        <option value='0'>Choose A Genre</option>
+        <?=outputGenre($song)?><br>
+    </select>
+</div>
+
+<div class="form-row">
+    <div class="form-group form-year">
+        <label for="year-before">Year:</label>
+        <label for="year-before-value">Before</label>
+        <input type="text" id="year-before-value" name="year-before-value">
+
+        <label for="year-after-value">Year: After</label>
+        <input type="text" id="year-after-value" name="year-after-value">
+    </div>
+
+    <div class="form-group form-pop">
+        <label for="pop-less">Popularity:</label>
+        <label for="pop-less-value">Less</label>
+        <input type="text" id="pop-less-value" name="pop-less-value">
+
+        <label for="pop-greater-value">Popularity: Greater</label>
+        <input type="text" id="pop-greater-value" name="pop-greater-value">
+    </div>
+</div>
+
+<button type="submit" class="submit-button">Search</button>
+</form>
+<img src="img/gif2.gif"/>
 </main> 
 <footer>
 <p>COMP 3512 Assignment 1</p>
