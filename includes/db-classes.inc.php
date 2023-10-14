@@ -56,6 +56,7 @@ class ArtistsDB{
     }
     # The function below returns a specific artist based on the artist_id
     public function getArtist($artist_id){
+        $sql = self::$baseSQL . " WHERE artist_id=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($artist_id));
         return $statement->fetchAll();
     }
@@ -81,6 +82,7 @@ class GenresDB{
     }
     # The function below returns a specific artist based on the genre_id
     public function getGenre($genre_id){
+        $sql = self::$baseSQL . " WHERE genre_id=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($genre_id));
         return $statement->fetchAll();
     }
@@ -117,14 +119,14 @@ class SongsDB{
             }
             
             # Returns songs for artist by name ordered by title
-            public function getArtist($artistName){
+            public function getAllArtist($artistName){
                 $sql = self::$baseSQL . " WHERE artist_name=? ORDER BY title";
     
                 $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($artistName));
                 return $statement->fetchAll();
             }
             # Returns songs for genre names ordered by title
-            public function getGenre($genreName){
+            public function getAllGenre($genreName){
                 $sql = self::$baseSQL . " WHERE genre_name=? ORDER BY title";
     
                 $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($genreName));

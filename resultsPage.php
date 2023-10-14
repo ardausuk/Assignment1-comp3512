@@ -16,17 +16,17 @@
          $message = "Showing all songs with '" . $_GET['title'] . "' in Title";
          $name = "title";
      }
-     else if( !empty($_GET['outputArtistList']) && $_GET['outputArtistList'] > 0){
-         $artist_data = $artistGet->getArtist($_GET['outputArtistList']);
-         $songs = $songsGet->getTopArtists($artist_data[0]['artist_name']);
+     else if( !empty($_GET['artistList']) && $_GET['artistList'] > 0){
+         $artist_data = $artistGet->getArtist($_GET['artistList']);
+         $songs = $songsGet->getAllArtist($artist_data[0]['artist_name']);
          $message = "Showing all songs by " . $artist_data[0]['artist_name'];
-         $name = "outputArtistList";
+         $name = "artistList";
      }
-     else if( !empty($_GET['outputGenre']) && $_GET['outputGenre'] > 0 ){
-         $genre_data = $genreGet->getGenre($_GET['outputGenre']);
-         $songs = $songsGet->getTopGenres($genre_data[0]['genre_name']);
+     else if( !empty($_GET['genreList']) && $_GET['genreList'] > 0 ){
+         $genre_data = $genreGet->getGenre($_GET['genreList']);
+         $songs = $songsGet->getAllGenre($genre_data[0]['genre_name']);
          $message = "Showing all " . $genre_data[0]['genre_name'] . " songs in Genre";
-         $name = "outputGenre";
+         $name = "genreList";
      }
      else if( !empty($_GET['year-before-value']) ){
          $songs = $songsGet->getBYear($_GET['year-before-value']);

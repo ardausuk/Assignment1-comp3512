@@ -49,19 +49,19 @@ catch (Exception $e){ die($e->getMessage());}
     </div>
 
     <div class="form-group form-artist">
-        <label for="outputArtistList">Artist:</label>
-        <select name="outputArtistList" id="outputArtistList">
+        <label for="artistList">Artist:</label>
+        <select name="artistList" title="artistList">
             <option value='0'>Choose An Artist</option>
-            <?=outputArtistList($artist);?>
+            <?=artistList($artist);?>
         </select>
     </div>
 </div>
 
 <div class="form-group form-genre">
-    <label for="outputGenre">Genre:</label><br>
-    <select name="outputGenre" id="outputGenre">
+    <label for="genreList">Genre:</label><br>
+    <select name="genreList" title="genreList">
         <option value='0'>Choose A Genre</option>
-        <?=outputGenre($song)?><br>
+        <?=genreList($song)?><br>
     </select>
 </div>
 

@@ -35,16 +35,16 @@ function truncateTitle($title, $max_length = 25){
         echo "</table>";
     } 
     # Function that outputs the genre from the search into the browse table
-    function outputGenre($songs){
-        foreach($songs as $songkey){
-            echo "<option value='".$songkey['genre_id']."'>".$songkey['genre_name']."</option>";
-        }
+    function genreList($songs){
+    foreach($songs as $sList){
+        echo "<option value='".$sList['genre_id']."'>".$sList['genre_name']."</option>";
+    }
+}
 
-    }
     # Function that outputs the artist from search into the browse table
-    function outputArtistList($artist){
-        foreach($artist as $key){
-            echo "<option value='".$key['artist_id']."'>".$key['artist_name']."</option>";
-        }
+    function artistList($artist){
+    foreach($artist as $a){
+        echo "<option value='".$a['artist_id']."'>".$a['artist_name']."</option>";
     }
+}
 ?>
