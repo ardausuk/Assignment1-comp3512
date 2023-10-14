@@ -8,8 +8,8 @@
     echo "<th>Year</th>";
     echo "<th>Genre</th>";
     echo "<th>Popularity</th>";
-    echo "<th>Remove Song</th>";
     echo "<th>View Song</th>";
+    echo "<th>Remove Song</th>";
     echo "</tr>";
  }
  # outputs and redirects to fav and single song pages

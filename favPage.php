@@ -50,7 +50,7 @@ $conn = DatabaseHelper::createConnection( array(DBCONNSTRING, DBUSER, DBPASS) );
 
 <main>
 <?php
-  echo "<p><a> Remove all</a></p>";
+ 
   if( !empty($_GET["text"]) ){
     echo $_GET["text"]; 
 }
