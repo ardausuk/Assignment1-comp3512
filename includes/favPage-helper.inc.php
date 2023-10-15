@@ -21,9 +21,10 @@
             <td><?=$fav['year']?></td>
             <td><?=$fav['genre_name']?></td>
             <td><?=$fav['popularity']?></td>
-            <td><a href='singleSong.php?id=<?=$fav['song_id']?>'><button class="button">View</button></a></td>
-            <td><a href='removeFav.php?id=<?=$fav['song_id']?>&<?=$search?>'><button class="button">Remove</button></a></td>
+            <td><a href='singleSong.php?id=<?=$fav['song_id']?>'><button class="button">🔍</button></a></td>
+            <td><a href='removeFav.php?id=<?=$fav['song_id']?>&<?=$search?>'><button class="rbutton">🚫</button></a></td>
         </tr>
     <?php }   
+    
 }
 ?>

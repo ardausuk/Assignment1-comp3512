@@ -4,6 +4,7 @@ require_once 'includes/db-classes.inc.php';
 require_once 'includes/homePage-helper.inc.php';
 require_once 'includes/singlePage-helper.inc.php';
 
+ 
 try{
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
     $songGet = new SongsDB($conn);
@@ -46,6 +47,7 @@ catch (Exception $e){ die($e->getMessage());}
 <main>
 <div class="song-info-container">
         <?php
+        # Foreach that takes the info of the selected song and displays them
         foreach ($song as $songName) {
             echo "<div class='song-info'>";
             echo "<span class='song-info-label'>Song Title:</span> <span class='song-info-value'>" . $songName['title'] . "</span><br>";
@@ -64,6 +66,7 @@ catch (Exception $e){ die($e->getMessage());}
     <div class="additional-info-container">
         <ul class='additional-info'>
             <?php
+            # Foreach that takes the analysis data of the selected song and displays them
             foreach ($song as $songName) {
                 echo "<li>BPM: <span class='green'>" . $songName['bpm'] . "</span></li>";
                 echo "<li>Energy: <span class='green'>" . $songName['energy'] . "</span></li>";
@@ -77,14 +80,15 @@ catch (Exception $e){ die($e->getMessage());}
         </ul>
     </div>
 <br><br>
-    <img src='img/gif7.gif' />
+    <img src='img/gif7.gif' alt="now-playing" />
 
 </main>
 
 
 <footer>
 <p>COMP 3512 Assignment 1</p>
-        <p>&copy; 2023 Arda Usuk. All Rights Reserved.</p>
+<p>Description of Assignment 1</p>
+        <p>&copy; 2023 <a href="https://github.com/ardausuk">Arda Usuk</a>. All Rights Reserved.</p>
         <p>GitHub Repository: <a href="https://github.com/ardausuk/Assignment1-comp3512">HarmonyHub</a></p>
      
 </footer>

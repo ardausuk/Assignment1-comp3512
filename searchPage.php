@@ -1,4 +1,5 @@
 <?php
+# Search page that takes input through form and passes it to results page to populate table
 require_once 'includes/db-classes.inc.php';
 require_once 'includes/config.inc.php';
 require_once 'includes/resultsPage-helper.inc.php';
@@ -38,7 +39,7 @@ catch (Exception $e){ die($e->getMessage());}
 </div>
 </header>
 <body>
-    <h1> Search For Your Favourite Song</h1>
+    <h1> Search For Your Song!</h1>
 <main>
 <form action="resultsPage.php" method="GET">
 
@@ -67,21 +68,21 @@ catch (Exception $e){ die($e->getMessage());}
 
 <div class="form-row">
     <div class="form-group form-year">
-        <label for="year-before">Year:</label>
-        <label for="year-before-value">Before</label>
-        <input type="text" id="year-before-value" name="year-before-value">
+        <label for="yearB">Year:</label>
+        <label for="yearB">Before</label>
+        <input type="text" id="yearB" name="yearB">
 
-        <label for="year-after-value">Year: After</label>
-        <input type="text" id="year-after-value" name="year-after-value">
+        <label for="yearA">Year: After</label>
+        <input type="text" id="yearA" name="yearA">
     </div>
 
     <div class="form-group form-pop">
-        <label for="pop-less">Popularity:</label>
-        <label for="pop-less-value">Less</label>
-        <input type="text" id="pop-less-value" name="pop-less-value">
+        <label for="popL">Popularity:</label>
+        <label for="popL">Less</label>
+        <input type="text" id="popL" name="popL">
 
-        <label for="pop-greater-value">Popularity: Greater</label>
-        <input type="text" id="pop-greater-value" name="pop-greater-value">
+        <label for="popG">Popularity: Greater</label>
+        <input type="text" id="popG" name="popG">
     </div>
 </div>
 
@@ -91,7 +92,8 @@ catch (Exception $e){ die($e->getMessage());}
 </main> 
 <footer>
 <p>COMP 3512 Assignment 1</p>
-        <p>&copy; 2023 Arda Usuk. All Rights Reserved.</p>
+<p>Description of Assignment 1</p>
+        <p>&copy; 2023 <a href="https://github.com/ardausuk">Arda Usuk</a>. All Rights Reserved.</p>
         <p>GitHub Repository: <a href="https://github.com/ardausuk/Assignment1-comp3512">HarmonyHub</a></p>
      
 </footer>

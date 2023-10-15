@@ -1,4 +1,5 @@
 <?php
+# Outputs table and foreach outputs data to populate
 require_once 'includes/config.inc.php';
 require_once 'includes/db-classes.inc.php';
 require_once 'includes/favPage-helper.inc.php';
@@ -47,8 +48,11 @@ $conn = DatabaseHelper::createConnection( array(DBCONNSTRING, DBUSER, DBPASS) );
 </header>
 <body>
 <h1> Your Favourite Songs!</h1>
-
+<a href='removeFav.php?<?=$str?>' class='rem-button'>Remove All</a>
 <main>
+
+
+
 <?php
  
   if( !empty($_GET["text"]) ){
@@ -67,12 +71,12 @@ foreach($favorites as $fav_id){
 
 echo "</table>";
 ?>
-
 </main>
 <img src="img/gif3.gif" />
-<footer>
+<<footer>
 <p>COMP 3512 Assignment 1</p>
-        <p>&copy; 2023 Arda Usuk. All Rights Reserved.</p>
+<p>Description of Assignment 1</p>
+        <p>&copy; 2023 <a href="https://github.com/ardausuk">Arda Usuk</a>. All Rights Reserved.</p>
         <p>GitHub Repository: <a href="https://github.com/ardausuk/Assignment1-comp3512">HarmonyHub</a></p>
      
 </footer>

@@ -28,8 +28,8 @@ function truncateTitle($title, $max_length = 25){
                 <td><?=$s['year']?></td>
                 <td><?=$s['genre_name']?></td>
                 <td><?=$s['popularity']?></td>
-                <td><a href='addFav.php?id=<?=$s['song_id']?>&name=<?=$name?>&<?=$name?>=<?=$search?>' ><button class='button'>Add</button></a></td>
-                <td><a href='singleSong.php?id=<?=$s['song_id']?>' ><button class='view'>View</button></a></td>
+                <td><a href='addFav.php?id=<?=$s['song_id']?>&name=<?=$name?>&<?=$name?>=<?=$search?>' ><button class='hbutton'>❤</button></a></td>
+                <td><a href='singleSong.php?id=<?=$s['song_id']?>' ><button class='view'>🔍</button></a></td>
             </tr>
         <?php }
         echo "</table>";

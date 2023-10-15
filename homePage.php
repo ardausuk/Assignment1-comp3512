@@ -40,9 +40,9 @@ catch (Exception $e){ die($e->getMessage());}
 <body>
     
 <div class="below-nav">
-<h1>Home Page</h1><br>
+<h1>Welcome to HarmonyHub!</h1><br>
 <p>COMP 3512 Assignment 1</p>
-<p>Description of Assignment 1</p>
+<p>A Multi-Page PHP Assignment</p>
 <p>GitHub Repository: <a href="https://github.com/ardausuk/Assignment1-comp3512">HarmonyHub</a></p>
 
 </div>
@@ -50,16 +50,17 @@ catch (Exception $e){ die($e->getMessage());}
 <main>
 
 <div class="box genre"> 
-        <h3>Top Genres</h3>
+        <h3 class="random-color">Top Genres</h3>
         <br>
         <?php 
+                # Gets data from dbclass which formats/creates the query and output is displayed (the div boxes use the same format)
                 $genres = $genreGet->getTopGenres();
                 outputTop10Category($genres);
             ?>
     </div>
 
     <div class="box artist"> 
-        <h3>Top Artists</h3>
+        <h3 class="random-color">Top Artists</h3>
         <br>
 
         <?php 
@@ -70,7 +71,7 @@ catch (Exception $e){ die($e->getMessage());}
     </div>
 
     <div class="box popular"> 
-        <h3>Most Popular Songs</h3>
+        <h3 class="random-color">Most Popular Songs</h3>
         <br>
 
         <?php
@@ -80,7 +81,7 @@ catch (Exception $e){ die($e->getMessage());}
     </div>
 
     <div class="box hit"> 
-        <h3>One Hit Wonders</h3>
+        <h3 class="random-color">One Hit Wonders</h3>
         <br>
 
         <?php 
@@ -90,7 +91,7 @@ catch (Exception $e){ die($e->getMessage());}
     </div>
 
     <div class="box acoustic"> 
-        <h3>Longest Acoustic Songs</h3>
+        <h3 class="random-color">Longest Acoustic Songs</h3>
         <br>
 
         <?php
@@ -101,7 +102,7 @@ catch (Exception $e){ die($e->getMessage());}
         </div>
 
     <div class="box club"> 
-        <h3>At The Club</h3>
+        <h3 class="random-color">At The Club</h3>
         <br>
 
         <?php 
@@ -111,7 +112,7 @@ catch (Exception $e){ die($e->getMessage());}
     </div>
 
     <div class="box running"> 
-        <h3>Running Songs</h3>
+        <h3 class="random-color">Running Songs</h3>
         <br>
 
         <?php 
@@ -121,7 +122,7 @@ catch (Exception $e){ die($e->getMessage());}
     </div>
 
     <div class="box studying"> 
-        <h3>Studying</h3>
+        <h3 class="random-color">Studying</h3>
         <br>
 
         <?php 
@@ -133,7 +134,7 @@ catch (Exception $e){ die($e->getMessage());}
 <footer>
 <p>COMP 3512 Assignment 1</p>
 <p>Description of Assignment 1</p>
-        <p>&copy; 2023 Arda Usuk. All Rights Reserved.</p>
+        <p>&copy; 2023 <a href="https://github.com/ardausuk">Arda Usuk</a>. All Rights Reserved.</p>
         <p>GitHub Repository: <a href="https://github.com/ardausuk/Assignment1-comp3512">HarmonyHub</a></p>
      
 </footer>

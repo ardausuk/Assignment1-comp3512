@@ -1,3 +1,5 @@
+/** CSS formatting for about done by Arda Usuk */
+
 @media screen and (max-width: 768px) {
     .navbar {
         width: 95%;
@@ -78,13 +80,22 @@ p.title {
     margin-right: auto;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
 footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     background-color: black;
 }
 
@@ -128,4 +139,13 @@ h1 {
     font-size: 40px;
     animation: bounceH1 2s infinite;
     animation-iteration-count: infinite;
+}
+
+main a.github-link {
+    color: #1DB954;
+    text-decoration: none;
+}
+
+main a.github-link:hover {
+    text-decoration: underline;
 }

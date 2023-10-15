@@ -1,3 +1,5 @@
+/** CSS formatting for main/home done by Arda Usuk */
+
 @media screen and (max-width: 768px) {
     .navbar {
         width: 95%;
@@ -128,10 +130,6 @@ main {
     margin-top: 0;
 }
 
-.box h3 {
-    color: #1DB954;
-}
-
 .no-bullets {
     list-style-type: none;
     padding: 0;
@@ -175,4 +173,37 @@ h1 {
     font-size: 40px;
     animation: bounceH1 2s infinite;
     animation-iteration-count: infinite;
+}
+
+.box h3,
+h3.random-color {
+    color: #1DB954;
+}
+
+@keyframes changeColor {
+    0%,
+    100% {
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        filter: hue-rotate(90deg);
+    }
+    50% {
+        filter: hue-rotate(180deg);
+    }
+    75% {
+        filter: hue-rotate(270deg);
+    }
+}
+
+h3.random-color {
+    animation: changeColor 5s infinite;
+}
+
+.box h3.random-color {
+    animation: changeColor 5s infinite;
+}
+
+.below-nav h1 {
+    color: #1DB954;
 }

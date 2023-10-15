@@ -10,7 +10,7 @@
      $genreGet = new GenresDB($conn);
 
      $name="";
-
+    # Get data for each key from search and displays message, else if used so if user inputs title and artist then title will be displayed and so on after. 
      if( !empty($_GET['title']) ){
          $songs = $songsGet->getTitle($_GET['title']);
          $message = "Showing all songs with '" . $_GET['title'] . "' in Title";
@@ -28,25 +28,25 @@
          $message = "Showing all " . $genre_data[0]['genre_name'] . " songs in Genre";
          $name = "genreList";
      }
-     else if( !empty($_GET['year-before-value']) ){
-         $songs = $songsGet->getBYear($_GET['year-before-value']);
-         $message = "Showing all songs before the year " . $_GET['year-before-value'];
-         $name = "year-before-value";
+     else if( !empty($_GET['yearB']) ){
+         $songs = $songsGet->getBYear($_GET['yearB']);
+         $message = "Showing all songs before the year " . $_GET['yearB'];
+         $name = "yearB";
      }
-     else if( !empty($_GET['year-after-value']) ){
-         $songs = $songsGet->getAYear($_GET['year-after-value']);
-         $message = "Showing all songs after the year " . $_GET['year-after-value'];
-         $name = "year-after-value";
+     else if( !empty($_GET['yearA']) ){
+         $songs = $songsGet->getAYear($_GET['yearA']);
+         $message = "Showing all songs after the year " . $_GET['yearA'];
+         $name = "yearA";
      }
-     else if( !empty($_GET['pop-less-value']) ){
-         $songs = $songsGet->getLowPop($_GET['pop-less-value']);
-         $message = "Showing all songs with popularity less than " . $_GET['pop-less-value'];
-         $name = "pop-less-value";
+     else if( !empty($_GET['popL']) ){
+         $songs = $songsGet->getLowPop($_GET['popL']);
+         $message = "Showing all songs with popularity less than " . $_GET['popL'];
+         $name = "popL";
      }
-     else if( !empty($_GET['pop-greater-value']) ){
-         $songs = $songsGet->getHighPop($_GET['pop-greater-value']);
-         $message = "Showing all songs with popularity greater than " . $_GET['pop-greater-value'];
-         $name = "pop-greater-value";
+     else if( !empty($_GET['popG']) ){
+         $songs = $songsGet->getHighPop($_GET['popG']);
+         $message = "Showing all songs with popularity greater than " . $_GET['popG'];
+         $name = "popG";
      }
      else{
          $songs = $songsGet->showAllSongs();
@@ -88,6 +88,7 @@
 <main>
 <a href='resultsPage.php' class='show-all-button'><button>Show All</button></a>
 <?php
+# Output message and results of search
 echo "<p class='title'>$message</p>";
 outputSearchResults($songs, $name, $search); 
 ?>
@@ -95,7 +96,8 @@ outputSearchResults($songs, $name, $search);
 </main>
 <footer>
 <p>COMP 3512 Assignment 1</p>
-        <p>&copy; 2023 Arda Usuk. All Rights Reserved.</p>
+<p>Description of Assignment 1</p>
+        <p>&copy; 2023 <a href="https://github.com/ardausuk">Arda Usuk</a>. All Rights Reserved.</p>
         <p>GitHub Repository: <a href="https://github.com/ardausuk/Assignment1-comp3512">HarmonyHub</a></p>
      
 </footer>
