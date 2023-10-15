@@ -72,7 +72,7 @@ foreach($favorites as $fav_id){
 echo "</table>";
 ?>
 </main>
-<img src="img/gif3.gif" />
+<img src="img/gif3.gif" alt="spongebob listening to music" />
 <<footer>
 <p>COMP 3512 Assignment 1</p>
 <p>Description of Assignment 1</p>

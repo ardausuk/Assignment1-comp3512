@@ -88,7 +88,7 @@ catch (Exception $e){ die($e->getMessage());}
 
 <button type="submit" class="submit-button">Search</button>
 </form>
-<img src="img/gif2.gif"/>
+<img src="img/gif2.gif" alt="search through records"/>
 </main> 
 <footer>
 <p>COMP 3512 Assignment 1</p>
